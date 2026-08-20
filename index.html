@@ -254,7 +254,14 @@
   }
   .video-card:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(76,132,255,0.25), 0 16px 36px rgba(0,0,0,0.45);}
   .video-frame{position:relative; aspect-ratio:16/9; background:#070b16; overflow:hidden;}
+  .video-frame.portrait{aspect-ratio:9/16; max-height:460px;}
   .video-frame img{width:100%; height:100%; object-fit:cover; display:block; opacity:0.92;}
+  .video-player{
+    width:min(960px, 94vw); aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.55);
+  }
+  .video-player.portrait{width:min(380px, 86vw); aspect-ratio:9/16;}
+  .video-player iframe, .video-player video{width:100%; height:100%; border:0; display:block; background:#000; object-fit:contain;}
   .play-btn{
     position:absolute; inset:0; margin:auto; width:64px; height:64px; border-radius:50%;
     background:linear-gradient(135deg,var(--blue-deep),#7F4CFF);
@@ -624,6 +631,211 @@
       </button>
         </div>
       </article>
+
+    <article class="work-chapter" data-cat="videos" id="videos">
+      <div class="chapter-head">
+        <p class="chapter-kicker">08 — Motion</p>
+        <h3>Video Edits</h3>
+        <p>Promo cuts and short-form edits. Click a card to play.</p>
+      </div>
+      <div class="video-grid">
+        <button class="video-card" type="button" data-drive="1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u" data-title="B2B promo" data-ratio="landscape">
+          <div class="video-frame">
+            <img src="public/videos/promo-01.jpg" alt="B2B promo thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">MOTION</span>
+            <h4>B2B promo</h4>
+            <p>Click to play.</p>
+          </div>
+        </button>
+        <button class="video-card" type="button" data-file="public/videos/promo-02.mp4" data-title="Promo edit 02" data-ratio="portrait">
+          <div class="video-frame portrait">
+            <img src="public/videos/promo-02.jpg" alt="Promo edit 02 thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">REEL</span>
+            <h4>Promo edit 02</h4>
+            <p>Click to play.</p>
+          </div>
+        </button>
+        <button class="video-card" type="button" data-file="public/videos/promo-03.mp4" data-title="Promo edit 03" data-ratio="portrait">
+          <div class="video-frame portrait">
+            <img src="public/videos/promo-03.jpg" alt="Promo edit 03 thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">REEL</span>
+            <h4>Promo edit 03</h4>
+            <p>Click to play.</p>
+          </div>
+        </button>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="grid-bg">
+  <div class="glow" style="top:-40px; left:50%; transform:translateX(-50%); width:300px; height:200px;"></div>
+  <div class="wrap">
+    <div class="pill fade-up" style="margin:0 auto 20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      TOOLKIT
+    </div>
+    <h2 class="heading fade-up">What I Design <span class="grad">With</span></h2>
+    <p class="sub fade-up">Trained in VFX &amp; compositing, sharpened by real freelance work.</p>
+
+    <div class="skill-cards">
+      <div class="skill-card fade-up">
+        <span class="badge-top">CORE</span>
+        <h3>Photoshop <span class="pct">92%</span></h3>
+        <p>Social creatives, banners and poster design — my daily driver for client work.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">CORE</span>
+        <h3>Illustrator <span class="pct">88%</span></h3>
+        <p>Logo work, brand marks and vector assets built for print and digital.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">MOTION</span>
+        <h3>Premiere Pro <span class="pct">85%</span></h3>
+        <p>Promo videos and reels edited for pace, story and platform fit.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">MOTION</span>
+        <h3>After Effects <span class="pct">78%</span></h3>
+        <p>Motion graphics and animated elements for social and promo content.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">MOTION</span>
+        <h3>DaVinci Resolve <span class="pct">75%</span></h3>
+        <p>Color grading and edits for a cleaner, more cinematic final look.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">3D</span>
+        <h3>Maya <span class="pct">65%</span></h3>
+        <p>3D modeling and animation basics from VFX &amp; compositing training.</p>
+      </div>
+      <div class="skill-card fade-up">
+        <span class="badge-top">QUICK TURNAROUND</span>
+        <h3>Canva <span class="pct">90%</span></h3>
+        <p>Fast, on-brand social creatives when speed matters as much as polish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-bg">
+  <div class="glow" style="top:0; left:50%; transform:translate(-50%,-50%); width:500px; height:400px;"></div>
+  <div class="wrap">
+    <div class="pill fade-up" style="margin:0 auto 20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      WHY WORK WITH ME
+    </div>
+    <h2 class="heading fade-up">A Designer Who Actually <span class="grad">Delivers</span></h2>
+    <p class="sub fade-up">Trained, tested by real clients, and built for deadlines.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card bad fade-up">
+        <div class="compare-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          <h3>Common with junior designers</h3>
+        </div>
+        <ul class="compare-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Misses brand guidelines, needs constant revisions</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Slow turnaround, missed deadlines</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Disappears mid-project, poor communication</span></li>
+        </ul>
+      </div>
+      <div class="compare-card good fade-up">
+        <div class="compare-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+          <h3>Working with Raghavendra</h3>
+        </div>
+        <ul class="compare-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>On-brief creatives across Photoshop, Illustrator &amp; Canva</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Managed multiple projects while meeting deadlines</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Worked directly with clients, start to delivery</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="grid-bg">
+  <div class="glow" style="top:10%; right:10%; width:260px; height:260px;"></div>
+  <div class="wrap">
+    <div class="pill fade-up" style="margin:0 auto 20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      EXPERIENCE
+    </div>
+    <h2 class="heading fade-up">Where I've <span class="grad">Worked</span></h2>
+
+    <div class="timeline">
+      <div class="tl-card fade-up">
+        <h3>Graphic Designer &amp; Video Editor</h3>
+        <div class="meta">Arena Animation · Nov 2025 — Present</div>
+        <ul>
+          <li>Designed 50+ social media creatives</li>
+          <li>Edited promotional videos and reels</li>
+          <li>Created branding materials and marketing assets</li>
+        </ul>
+      </div>
+      <div class="tl-card fade-up">
+        <h3>Freelance Graphic Designer &amp; Video Editor</h3>
+        <div class="meta">Self-employed · Aug 2025 — Present</div>
+        <ul>
+          <li>Created social creatives, branding assets &amp; promo videos for clients</li>
+          <li>Worked directly with clients to deliver engaging visual content</li>
+          <li>Managed multiple projects while meeting deadlines</li>
+        </ul>
+      </div>
+      <div class="tl-card fade-up">
+        <h3>Content Creation Intern</h3>
+        <div class="meta">All India Radio</div>
+        <ul><li>Supported content creation across on-air and digital formats</li></ul>
+      </div>
+      <div class="tl-card fade-up">
+        <h3>Design Intern</h3>
+        <div class="meta">Chitara Magazine</div>
+        <ul><li>Created posters and worked on social media creatives</li></ul>
+      </div>
+    </div>
+
+    <div class="edu-grid" style="margin-top:44px;">
+      <div class="edu-card fade-up">
+        <h3>VFX &amp; Compositing</h3>
+        <div class="meta">Arena Animation · May 2023 — Nov 2025</div>
+        <p>Specialised training in VFX and compositing, alongside graphic design and video editing tools.</p>
+      </div>
+      <div class="edu-card fade-up">
+        <h3>Degree, Bangalore University</h3>
+        <div class="meta">PJCE · May 2021 — 2024</div>
+        <p>Undergraduate studies at PJCE, Bangalore University.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="grid-bg">
+  <div class="glow" style="top:20px; left:50%; transform:translateX(-50%); width:400px; height:300px;"></div>
+  <div class="wrap" style="text-align:center;">
+    <div class="pill fade-up" style="margin:0 auto 20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      GET IN TOUCH
+    </div>
+    <h2 class="heading fade-up">Ready To Start Your <span class="grad">Next Project?</span></h2>
+    <p class="sub fade-up">Reels, banners, posters, logos or full brand kits — let's talk about what you need.</p>
+
+    <div class="contact-card fade-up">
+      <div class="contact-links">
+        <a href="mailto:raghavendrathinakar@gmail.com">raghavendrathinakar@gmail.com</a>
+        <a href="tel:+918431730486">+91 84317 30486</a>
+        <a href="https://www.behance.net/raghuxo" target="_blank" rel="noopener">Behance ↗</a>
+      </div>
     </div>
     <a href="mailto:raghavendrathinakar@gmail.com" class="final-btn fade-up">Send Me a Brief →</a>
   </div>
@@ -688,20 +900,15 @@
     btn.addEventListener('click', () => {
       activeFilter = btn.dataset.filter;
       filters.forEach(b => b.classList.toggle('active', b === btn));
-      const videoOnly = activeFilter === 'videos';
       document.querySelectorAll('.work-chapter').forEach(ch => {
-        const show = !videoOnly && (activeFilter === 'all' || ch.dataset.cat === activeFilter);
+        const show = activeFilter === 'all' || ch.dataset.cat === activeFilter;
         ch.classList.toggle('is-hidden', !show);
       });
-      gallery.classList.toggle('is-hidden', videoOnly);
-      if(!videoOnly && activeFilter !== 'all'){
-        const ch = document.getElementById('chapter-' + activeFilter);
-        if(ch) ch.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
-      }
-      if(stillsNote) stillsNote.classList.toggle('is-hidden', videoOnly);
-      if(videoWork){
-        videoWork.classList.toggle('is-hidden', activeFilter !== 'all' && activeFilter !== 'videos');
-        if(videoOnly) videoWork.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'start'});
+      if(gallery) gallery.classList.remove('is-hidden');
+      const target = activeFilter === 'all' ? document.getElementById('work') :
+        (document.getElementById('chapter-' + activeFilter) || document.getElementById(activeFilter));
+      if(activeFilter !== 'all' && target){
+        target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
       }
     });
   });
@@ -757,17 +964,29 @@
   let videoIndex = 0;
 
   function unloadVideo(){
+    videoPlayer.querySelectorAll('video').forEach(v => { v.pause(); v.src=''; });
     videoPlayer.innerHTML = '';
   }
   function loadVideo(index){
     videoIndex = (index + videoCards.length) % videoCards.length;
     const card = videoCards[videoIndex];
     unloadVideo();
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://drive.google.com/file/d/' + card.dataset.drive + '/preview';
-    iframe.title = card.dataset.title;
-    iframe.setAttribute('allow', 'autoplay');
-    videoPlayer.appendChild(iframe);
+    videoPlayer.classList.toggle('portrait', card.dataset.ratio === 'portrait');
+    if(card.dataset.file){
+      const video = document.createElement('video');
+      video.src = card.dataset.file;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      videoPlayer.appendChild(video);
+    } else {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://drive.google.com/file/d/' + card.dataset.drive + '/preview';
+      iframe.title = card.dataset.title;
+      iframe.setAttribute('allow', 'autoplay');
+      videoPlayer.appendChild(iframe);
+    }
     videoCaption.textContent = card.dataset.title;
   }
   function openVideo(index){
