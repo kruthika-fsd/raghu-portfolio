@@ -201,10 +201,18 @@
     border:1px solid rgba(76,132,255,0.35); border-radius:20px; overflow:hidden;
     box-shadow:0 10px 28px rgba(0,0,0,0.35);
     transition:transform .25s ease, box-shadow .25s ease;
+    color:inherit; text-align:left; padding:0; width:100%; cursor:pointer; font:inherit;
   }
   .video-card:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(76,132,255,0.25), 0 16px 36px rgba(0,0,0,0.45);}
-  .video-frame{position:relative; aspect-ratio:16/9; background:#000;}
-  .video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .video-frame{position:relative; aspect-ratio:16/9; background:#070b16; overflow:hidden;}
+  .video-frame img{width:100%; height:100%; object-fit:cover; display:block; opacity:0.92;}
+  .play-btn{
+    position:absolute; inset:0; margin:auto; width:64px; height:64px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blue-deep),#7F4CFF);
+    box-shadow:0 0 24px rgba(41,82,255,0.55);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:22px; padding-left:4px;
+  }
   .video-body{padding:16px 18px 18px;}
   .video-body .badge-top{
     display:inline-block; background:var(--pill-bg); border:1px solid var(--pill-border);
@@ -213,8 +221,11 @@
   }
   .video-body h4{font-size:15px; font-weight:800; text-transform:uppercase; margin-bottom:6px;}
   .video-body p{color:var(--text-dim); font-size:13px; line-height:1.5;}
-  .video-body a{color:#9db4ff; font-size:12px; font-weight:600; text-decoration:none;}
-  .video-body a:hover{color:#fff;}
+  .video-player{
+    width:min(960px, 94vw); aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.55);
+  }
+  .video-player iframe{width:100%; height:100%; border:0; display:block;}
 
   .lightbox{
     position:fixed; inset:0; z-index:300; display:none;
@@ -504,42 +515,42 @@
     <div class="video-work fade-up" id="videos">
       <div class="video-head">
         <h3>Motion &amp; <span class="grad">Video Edits</span></h3>
-        <p>Promo cuts and short-form edits. Hit play on a card to watch.</p>
+        <p>Promo cuts and short-form edits. Click a card to play — only one video runs at a time.</p>
       </div>
       <div class="video-grid">
-        <article class="video-card">
+        <button class="video-card" type="button" data-drive="1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u" data-title="Promo edit 01">
           <div class="video-frame">
-            <iframe src="https://drive.google.com/file/d/1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u/preview" title="Promo video edit 1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            <img src="https://drive.google.com/thumbnail?id=1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u&sz=w1280" alt="Promo edit 01 thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
           </div>
           <div class="video-body">
             <span class="badge-top">MOTION</span>
             <h4>Promo edit 01</h4>
-            <p>Short-form / promo cut.</p>
-            <a href="https://drive.google.com/file/d/1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+            <p>Short-form / promo cut. Click to play.</p>
           </div>
-        </article>
-        <article class="video-card">
+        </button>
+        <button class="video-card" type="button" data-drive="1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur" data-title="Promo edit 02">
           <div class="video-frame">
-            <iframe src="https://drive.google.com/file/d/1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur/preview" title="Promo video edit 2" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            <img src="https://drive.google.com/thumbnail?id=1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur&sz=w1280" alt="Promo edit 02 thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
           </div>
           <div class="video-body">
             <span class="badge-top">MOTION</span>
             <h4>Promo edit 02</h4>
-            <p>Short-form / promo cut.</p>
-            <a href="https://drive.google.com/file/d/1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+            <p>Short-form / promo cut. Click to play.</p>
           </div>
-        </article>
-        <article class="video-card">
+        </button>
+        <button class="video-card" type="button" data-drive="1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0" data-title="Promo edit 03">
           <div class="video-frame">
-            <iframe src="https://drive.google.com/file/d/1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0/preview" title="Promo video edit 3" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            <img src="https://drive.google.com/thumbnail?id=1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0&sz=w1280" alt="Promo edit 03 thumbnail">
+            <span class="play-btn" aria-hidden="true">▶</span>
           </div>
           <div class="video-body">
             <span class="badge-top">MOTION</span>
             <h4>Promo edit 03</h4>
-            <p>Short-form / promo cut.</p>
-            <a href="https://drive.google.com/file/d/1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+            <p>Short-form / promo cut. Click to play.</p>
           </div>
-        </article>
+        </button>
       </div>
     </div>
   </div>
@@ -718,6 +729,14 @@
   <button class="lightbox-nav next" type="button" aria-label="Next image">›</button>
 </div>
 
+<div class="lightbox" id="videoLightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lightbox-close" type="button" aria-label="Close video">×</button>
+  <button class="lightbox-nav prev" type="button" aria-label="Previous video">‹</button>
+  <div class="video-player" id="videoPlayer"></div>
+  <p class="lightbox-caption" id="videoCaption"></p>
+  <button class="lightbox-nav next" type="button" aria-label="Next video">›</button>
+</div>
+
 <script>
   const els = document.querySelectorAll('.fade-up');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -813,7 +832,51 @@
   lightbox.querySelector('.lightbox-nav.prev').addEventListener('click', () => stepLightbox(-1));
   lightbox.querySelector('.lightbox-nav.next').addEventListener('click', () => stepLightbox(1));
   lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+
+  const videoCards = [...document.querySelectorAll('.video-card')];
+  const videoLightbox = document.getElementById('videoLightbox');
+  const videoPlayer = document.getElementById('videoPlayer');
+  const videoCaption = document.getElementById('videoCaption');
+  let videoIndex = 0;
+
+  function unloadVideo(){
+    videoPlayer.innerHTML = '';
+  }
+  function loadVideo(index){
+    videoIndex = (index + videoCards.length) % videoCards.length;
+    const card = videoCards[videoIndex];
+    unloadVideo();
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/' + card.dataset.drive + '/preview';
+    iframe.title = card.dataset.title;
+    iframe.setAttribute('allow', 'autoplay');
+    videoPlayer.appendChild(iframe);
+    videoCaption.textContent = card.dataset.title;
+  }
+  function openVideo(index){
+    closeLightbox();
+    loadVideo(index);
+    videoLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo(){
+    videoLightbox.classList.remove('open');
+    unloadVideo();
+    document.body.style.overflow = '';
+  }
+  videoCards.forEach((card, i) => card.addEventListener('click', () => openVideo(i)));
+  videoLightbox.querySelector('.lightbox-close').addEventListener('click', closeVideo);
+  videoLightbox.querySelector('.lightbox-nav.prev').addEventListener('click', () => loadVideo(videoIndex - 1));
+  videoLightbox.querySelector('.lightbox-nav.next').addEventListener('click', () => loadVideo(videoIndex + 1));
+  videoLightbox.addEventListener('click', (e) => { if(e.target === videoLightbox) closeVideo(); });
+
   document.addEventListener('keydown', (e) => {
+    if(videoLightbox.classList.contains('open')){
+      if(e.key === 'Escape') closeVideo();
+      if(e.key === 'ArrowLeft') loadVideo(videoIndex - 1);
+      if(e.key === 'ArrowRight') loadVideo(videoIndex + 1);
+      return;
+    }
     if(!lightbox.classList.contains('open')) return;
     if(e.key === 'Escape') closeLightbox();
     if(e.key === 'ArrowLeft') stepLightbox(-1);
