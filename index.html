@@ -6,7 +6,7 @@
 <title>Raghavendra T — Graphic Designer & Video Editor</title>
 <meta name="description" content="Bengaluru-based graphic designer and video editor. Social creatives, outdoor campaigns, posters, logos and promo edits.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg1:#0A0F1E; --bg2:#0E1530; --bg3:#000000;
@@ -83,7 +83,8 @@
   .fade-up{opacity:0; transform:translateY(24px); transition:opacity .6s ease-out, transform .6s ease-out;}
   .fade-up.visible{opacity:1; transform:translateY(0);}
 
-  section{padding:70px 0; position:relative;}
+  section{padding:88px 0; position:relative;}
+  h1,h2,h3,h4,.brand,.heading,.chapter-head h3,.gallery-title,.video-body h4,.skill-card h3,.tl-card h3,.edu-card h3,.compare-head h3{font-family:'Outfit',Inter,sans-serif;}
   .heading{text-align:center; font-weight:800; text-transform:uppercase; line-height:1.15; letter-spacing:0.3px; font-size:clamp(28px,6vw,44px); margin:0 auto 16px;}
   .heading .grad, .grad{background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 30px rgba(76,132,255,0.3);}
   .sub{text-align:center; color:var(--text-dim); font-size:15px; line-height:1.6; max-width:520px; margin:0 auto;}
@@ -100,6 +101,7 @@
     transition:transform 0.2s ease;
   }
   .hero-cta:hover{transform:translateY(-2px);}
+  .hero-actions .hero-cta, .hero-actions .hero-ghost{width:auto; min-width:210px;}
   .hero-note{color:var(--text-faint); font-size:12px;}
 
   .stat-row{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:12px;}
@@ -123,68 +125,115 @@
 
   .work-filters{
     display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
-    margin:36px auto 28px; max-width:820px;
+    position:sticky; top:64px; z-index:40;
+    background:rgba(10,15,30,0.86); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.06); border-radius:18px;
+    padding:10px 12px; margin:36px auto 18px; max-width:920px;
   }
   .filter-btn{
-    background:#0B1225; border:1px solid #2337A4; color:var(--text-dim);
-    border-radius:100px; padding:8px 14px; font-size:12px; font-weight:700;
+    background:transparent; border:1px solid transparent; color:var(--text-dim);
+    border-radius:100px; padding:8px 14px; font-size:11px; font-weight:700;
     letter-spacing:0.4px; text-transform:uppercase; cursor:pointer;
     transition:background .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .filter-btn:hover{color:#fff; border-color:var(--blue);}
+  .filter-btn:hover{color:#fff; border-color:rgba(76,132,255,0.45);}
   .filter-btn.active{
     background:linear-gradient(135deg,var(--blue-deep),#7F4CFF);
     border-color:transparent; color:#fff;
     box-shadow:0 0 18px rgba(41,82,255,0.45);
   }
 
-  .gallery{
-    column-count:1; column-gap:16px;
+  .gallery.is-hidden, .work-note.is-hidden, .work-chapter.is-hidden{display:none;}
+  .work-chapter{margin-top:56px; scroll-margin-top:120px;}
+  .work-chapter:first-child{margin-top:12px;}
+  .chapter-head{margin:0 4px 20px; max-width:560px;}
+  .chapter-kicker{
+    color:#9db4ff; font-size:11px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:8px;
   }
-  .gallery.is-hidden, .work-note.is-hidden{display:none;}
-  @media(min-width:640px){ .gallery{column-count:2;} }
-  @media(min-width:980px){ .gallery{column-count:3;} }
+  .chapter-head h3{font-size:clamp(22px,3.4vw,32px); font-weight:800; letter-spacing:0.2px; margin-bottom:8px;}
+  .chapter-head p{color:var(--text-dim); font-size:14px; line-height:1.55;}
+
+  .shot-grid{display:grid; gap:14px;}
+  .layout-banners{grid-template-columns:repeat(3,1fr);}
+  .layout-banners .gallery-item:first-child{grid-column:1 / -1; grid-row:auto;}
+  .layout-posters{grid-template-columns:repeat(4,1fr);}
+  .layout-logos{grid-template-columns:repeat(5,1fr); gap:16px;}
+  .layout-social{grid-template-columns:1.25fr 1fr 1fr;}
+  .layout-social .gallery-item:first-child{grid-column:1; grid-row:1 / span 2;}
+  .layout-cards{grid-template-columns:1.3fr 1fr 1fr;}
+  .layout-cards .gallery-item:first-child{grid-column:1; grid-row:1 / span 2;}
+  .layout-thumbs{grid-template-columns:1fr 1fr; gap:16px;}
+  .layout-reels{grid-template-columns:repeat(3,minmax(0,240px)); justify-content:center; gap:22px;}
+
   .gallery-item{
-    display:block; width:100%; break-inside:avoid; margin:0 0 16px;
+    display:block; width:100%; height:100%;
     border:0; padding:0; cursor:pointer; text-align:left;
-    background:#050814; border-radius:18px; overflow:hidden;
-    border:1px solid rgba(76,132,255,0.28);
-    box-shadow:0 10px 28px rgba(0,0,0,0.35);
+    background:#070b16; border-radius:20px; overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 12px 32px rgba(0,0,0,0.28);
     position:relative; color:inherit;
-    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
   }
-  .gallery-item.is-hidden{display:none;}
   .gallery-item img{
-    width:100%; height:auto; display:block; vertical-align:middle;
-    transition:transform .45s ease;
+    width:100%; height:100%; display:block; object-fit:cover;
+    transition:transform .5s ease;
   }
-  .gallery-item.fit-contain{
-    background:#050814;
+  .layout-banners .gallery-item img{aspect-ratio:16/10;}
+  .layout-banners .gallery-item:first-child img{aspect-ratio:21/9;}
+  .layout-posters .gallery-item img{aspect-ratio:3/4;}
+  .layout-logos .gallery-item{
+    background:radial-gradient(circle at 50% 40%, rgba(76,132,255,0.16), #050814 70%);
+    border-radius:24px;
   }
-  .gallery-item.fit-contain img{
-    object-fit:contain; background:#050814; aspect-ratio:1/1; padding:18px;
-  }
-  .gallery-item.cat-reels img{aspect-ratio:9/16; object-fit:cover;}
-  .gallery-item.cat-thumbs img{aspect-ratio:16/9; object-fit:cover;}
-  .gallery-item.cat-banners img{aspect-ratio:16/10; object-fit:cover;}
+  .layout-logos .gallery-item img{aspect-ratio:1; object-fit:contain; padding:22px; background:transparent;}
+  .layout-social .gallery-item img{aspect-ratio:4/5;}
+  .layout-social .gallery-item:first-child img{aspect-ratio:16/11;}
+  .layout-cards .gallery-item img{aspect-ratio:4/3;}
+  .layout-cards .gallery-item:first-child img{aspect-ratio:4/5; object-fit:cover;}
+  .layout-thumbs .gallery-item img{aspect-ratio:16/9;}
+  .layout-reels .gallery-item{border-radius:28px; max-width:240px; margin:0 auto;}
+  .layout-reels .gallery-item img{aspect-ratio:9/16;}
+
   .gallery-meta{
     position:absolute; left:0; right:0; bottom:0;
-    padding:28px 14px 14px;
-    background:linear-gradient(180deg, transparent, rgba(5,8,20,0.92));
-    display:flex; flex-direction:column; gap:4px;
-    opacity:0; transform:translateY(8px); transition:opacity .25s ease, transform .25s ease;
+    padding:36px 16px 14px;
+    background:linear-gradient(180deg, transparent, rgba(5,8,20,0.88));
+    display:flex; flex-direction:column; gap:3px;
   }
   .gallery-cat{
     font-size:10px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase;
     color:#9db4ff;
   }
-  .gallery-title{font-size:14px; font-weight:700;}
-  .gallery-item:hover{transform:translateY(-4px); border-color:var(--blue); box-shadow:0 0 28px rgba(76,132,255,0.28), 0 16px 36px rgba(0,0,0,0.45);}
-  .gallery-item:hover img{transform:scale(1.04);}
-  .gallery-item:hover .gallery-meta{opacity:1; transform:translateY(0);}
-  @media(hover:none){ .gallery-meta{opacity:1; transform:none;} }
+  .gallery-title{font-size:15px; font-weight:700;}
+  .gallery-item:hover{transform:translateY(-5px); border-color:rgba(76,132,255,0.7); box-shadow:0 0 28px rgba(76,132,255,0.22), 0 18px 36px rgba(0,0,0,0.45);}
+  .gallery-item:hover img{transform:scale(1.05);}
 
-  .work-note{text-align:center; color:var(--text-faint); font-size:12px; margin-top:8px;}
+  @media(max-width:900px){
+    .layout-banners,.layout-social,.layout-cards{grid-template-columns:1fr 1fr;}
+    .layout-banners .gallery-item:first-child,
+    .layout-social .gallery-item:first-child,
+    .layout-cards .gallery-item:first-child{grid-column:1 / -1; grid-row:auto;}
+    .layout-banners .gallery-item:first-child img,
+    .layout-social .gallery-item:first-child img,
+    .layout-cards .gallery-item:first-child img{aspect-ratio:16/9;}
+    .layout-posters,.layout-logos{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:640px){
+    .layout-thumbs{grid-template-columns:1fr;}
+    .layout-reels{grid-template-columns:repeat(3,1fr); gap:10px;}
+    .layout-reels .gallery-item{border-radius:18px;}
+    .work-filters{top:58px; padding:8px;}
+  }
+
+  .work-note{text-align:center; color:var(--text-faint); font-size:12px; margin-top:28px;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; width:100%;}
+  .hero-ghost{
+    width:90%; max-width:340px; padding:16px 24px; text-align:center;
+    color:#fff; font-weight:700; font-size:15px; text-decoration:none; border-radius:100px;
+    border:1px solid rgba(157,180,255,0.45); background:rgba(10,15,30,0.4);
+  }
+  .hero-ghost:hover{border-color:#fff;}
 
   .video-work{margin-top:48px; scroll-margin-top:88px;}
   .video-work.is-hidden{display:none;}
@@ -339,7 +388,10 @@
     </div>
     <h1 class="fade-up">Graphic Designer &amp; <span class="heading" style="display:inline;padding:0;margin:0;"><span class="grad" style="font-size:inherit;">Video Editor</span></span></h1>
     <p class="tag fade-up">I'm Raghavendra, based in Bengaluru — I design social creatives, brand assets and promo edits that help brands actually get noticed.</p>
-    <a href="#contact" class="hero-cta fade-up">Let's Work Together →</a>
+    <div class="hero-actions fade-up">
+      <a href="#work" class="hero-ghost">See the work</a>
+      <a href="#contact" class="hero-cta">Let's Work Together →</a>
+    </div>
     <p class="hero-note fade-up">Currently at Arena Animation · Freelancing since Aug 2025</p>
     <div class="stat-row fade-up">
       <div class="stat-pill"><div class="num">50+</div><div class="lbl">Creatives</div></div>
@@ -373,6 +425,13 @@
     </div>
 
     <div class="gallery" id="workGallery">
+      <article class="work-chapter" data-cat="banners" id="chapter-banners">
+        <div class="chapter-head">
+          <p class="chapter-kicker">01 — Outdoor</p>
+          <h3>Banners & Signage</h3>
+          <p>Campaigns built for streets, shops and real-world scale.</p>
+        </div>
+        <div class="shot-grid layout-banners">
       <button class="gallery-item fit-cover cat-banners" type="button" data-cat="banners" data-index="0" data-src="public/banners/barricade.jpg" data-alt="AKS Cycle Studio barricade banner" data-title="Barricade wrap">
         <img src="public/banners/barricade.jpg" alt="AKS Cycle Studio barricade banner" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Banners</span><span class="gallery-title">Barricade wrap</span></span>
@@ -389,6 +448,15 @@
         <img src="public/banners/side-board.jpg" alt="Celestra jewellery side board signage" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Banners</span><span class="gallery-title">Side board</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="posters" id="chapter-posters">
+        <div class="chapter-head">
+          <p class="chapter-kicker">02 — Print & film</p>
+          <h3>Poster Design</h3>
+          <p>Portrait pieces with room to read the artwork.</p>
+        </div>
+        <div class="shot-grid layout-posters">
       <button class="gallery-item fit-cover cat-posters" type="button" data-cat="posters" data-index="4" data-src="public/posters/no-escape.jpg" data-alt="No Escape film poster" data-title="No Escape">
         <img src="public/posters/no-escape.jpg" alt="No Escape film poster" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Posters</span><span class="gallery-title">No Escape</span></span>
@@ -421,6 +489,15 @@
         <img src="public/posters/mothers-day.jpg" alt="Mother's Day poster" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Posters</span><span class="gallery-title">Mother's Day</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="logos" id="chapter-logos">
+        <div class="chapter-head">
+          <p class="chapter-kicker">03 — Identity</p>
+          <h3>Logo Marks</h3>
+          <p>Quiet tiles so each mark can sit on its own.</p>
+        </div>
+        <div class="shot-grid layout-logos">
       <button class="gallery-item fit-contain cat-logos" type="button" data-cat="logos" data-index="12" data-src="public/logos/dsignx.jpg" data-alt="DSIGNX studio logo" data-title="DSIGNX">
         <img src="public/logos/dsignx.jpg" alt="DSIGNX studio logo" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Logos</span><span class="gallery-title">DSIGNX</span></span>
@@ -441,6 +518,15 @@
         <img src="public/logos/zozoo-pantry.png" alt="Zozoo Pantry logo" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Logos</span><span class="gallery-title">Zozoo Pantry</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="social" id="chapter-social">
+        <div class="chapter-head">
+          <p class="chapter-kicker">04 — Digital</p>
+          <h3>Social Creatives</h3>
+          <p>Feed-ready posts and campaign mockups.</p>
+        </div>
+        <div class="shot-grid layout-social">
       <button class="gallery-item fit-cover cat-social" type="button" data-cat="social" data-index="17" data-src="public/social/mockup.jpg" data-alt="Social media campaign mockup" data-title="Campaign mockup">
         <img src="public/social/mockup.jpg" alt="Social media campaign mockup" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Social</span><span class="gallery-title">Campaign mockup</span></span>
@@ -461,6 +547,15 @@
         <img src="public/social/post-7.png" alt="Social media creative" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Social</span><span class="gallery-title">Social post</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="cards" id="chapter-cards">
+        <div class="chapter-head">
+          <p class="chapter-kicker">05 — Print</p>
+          <h3>Business Cards</h3>
+          <p>Mockups first, then the front and back details.</p>
+        </div>
+        <div class="shot-grid layout-cards">
       <button class="gallery-item fit-cover cat-cards" type="button" data-cat="cards" data-index="22" data-src="public/business-cards/final-mockup.jpg" data-alt="Business card final mockup" data-title="Card mockup">
         <img src="public/business-cards/final-mockup.jpg" alt="Business card final mockup" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Cards</span><span class="gallery-title">Card mockup</span></span>
@@ -481,22 +576,40 @@
         <img src="public/business-cards/artboard.png" alt="Business card layout" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Cards</span><span class="gallery-title">Card layout</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="thumbs" id="chapter-thumbs">
+        <div class="chapter-head">
+          <p class="chapter-kicker">06 — YouTube</p>
+          <h3>Thumbnails</h3>
+          <p>Wide frames, because that is how they live on the platform.</p>
+        </div>
+        <div class="shot-grid layout-thumbs">
       <button class="gallery-item fit-cover cat-thumbs" type="button" data-cat="thumbs" data-index="27" data-src="public/thumbnails/apples.jpg" data-alt="Apples YouTube thumbnail" data-title="Apples">
         <img src="public/thumbnails/apples.jpg" alt="Apples YouTube thumbnail" loading="lazy" decoding="async">
-        <span class="gallery-meta"><span class="gallery-cat">thumbnails</span><span class="gallery-title">Apples</span></span>
+        <span class="gallery-meta"><span class="gallery-cat">Thumbnails</span><span class="gallery-title">Apples</span></span>
       </button>
       <button class="gallery-item fit-cover cat-thumbs" type="button" data-cat="thumbs" data-index="28" data-src="public/thumbnails/money.jpg" data-alt="Money YouTube thumbnail" data-title="Money">
         <img src="public/thumbnails/money.jpg" alt="Money YouTube thumbnail" loading="lazy" decoding="async">
-        <span class="gallery-meta"><span class="gallery-cat">thumbnails</span><span class="gallery-title">Money</span></span>
+        <span class="gallery-meta"><span class="gallery-cat">Thumbnails</span><span class="gallery-title">Money</span></span>
       </button>
       <button class="gallery-item fit-cover cat-thumbs" type="button" data-cat="thumbs" data-index="29" data-src="public/thumbnails/gimble-2.jpg" data-alt="Gimbal YouTube thumbnail" data-title="Gimbal">
         <img src="public/thumbnails/gimble-2.jpg" alt="Gimbal YouTube thumbnail" loading="lazy" decoding="async">
-        <span class="gallery-meta"><span class="gallery-cat">thumbnails</span><span class="gallery-title">Gimbal</span></span>
+        <span class="gallery-meta"><span class="gallery-cat">Thumbnails</span><span class="gallery-title">Gimbal</span></span>
       </button>
       <button class="gallery-item fit-cover cat-thumbs" type="button" data-cat="thumbs" data-index="30" data-src="public/thumbnails/gimble-11.jpg" data-alt="Gimbal product thumbnail" data-title="Gimbal">
         <img src="public/thumbnails/gimble-11.jpg" alt="Gimbal product thumbnail" loading="lazy" decoding="async">
-        <span class="gallery-meta"><span class="gallery-cat">thumbnails</span><span class="gallery-title">Gimbal</span></span>
+        <span class="gallery-meta"><span class="gallery-cat">Thumbnails</span><span class="gallery-title">Gimbal</span></span>
       </button>
+        </div>
+      </article>
+      <article class="work-chapter" data-cat="reels" id="chapter-reels">
+        <div class="chapter-head">
+          <p class="chapter-kicker">07 — Short form</p>
+          <h3>Reel Covers</h3>
+          <p>Vertical frames, the way they appear on a phone.</p>
+        </div>
+        <div class="shot-grid layout-reels">
       <button class="gallery-item fit-cover cat-reels" type="button" data-cat="reels" data-index="31" data-src="public/reels/fuji-cam.jpg" data-alt="Fuji camera reel thumbnail" data-title="Fuji cam">
         <img src="public/reels/fuji-cam.jpg" alt="Fuji camera reel thumbnail" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Reels</span><span class="gallery-title">Fuji cam</span></span>
@@ -509,211 +622,8 @@
         <img src="public/reels/money-mobile.jpg" alt="Money reel thumbnail" loading="lazy" decoding="async">
         <span class="gallery-meta"><span class="gallery-cat">Reels</span><span class="gallery-title">Money reel</span></span>
       </button>
-    </div>
-    <p class="work-note fade-up" id="stillsNote">Click any piece to view it larger.</p>
-
-    <div class="video-work fade-up" id="videos">
-      <div class="video-head">
-        <h3>Motion &amp; <span class="grad">Video Edits</span></h3>
-        <p>Promo cuts and short-form edits. Click a card to play — only one video runs at a time.</p>
-      </div>
-      <div class="video-grid">
-        <button class="video-card" type="button" data-drive="1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u" data-title="Promo edit 01">
-          <div class="video-frame">
-            <img src="https://drive.google.com/thumbnail?id=1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u&sz=w1280" alt="Promo edit 01 thumbnail">
-            <span class="play-btn" aria-hidden="true">▶</span>
-          </div>
-          <div class="video-body">
-            <span class="badge-top">MOTION</span>
-            <h4>Promo edit 01</h4>
-            <p>Short-form / promo cut. Click to play.</p>
-          </div>
-        </button>
-        <button class="video-card" type="button" data-drive="1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur" data-title="Promo edit 02">
-          <div class="video-frame">
-            <img src="https://drive.google.com/thumbnail?id=1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur&sz=w1280" alt="Promo edit 02 thumbnail">
-            <span class="play-btn" aria-hidden="true">▶</span>
-          </div>
-          <div class="video-body">
-            <span class="badge-top">MOTION</span>
-            <h4>Promo edit 02</h4>
-            <p>Short-form / promo cut. Click to play.</p>
-          </div>
-        </button>
-        <button class="video-card" type="button" data-drive="1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0" data-title="Promo edit 03">
-          <div class="video-frame">
-            <img src="https://drive.google.com/thumbnail?id=1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0&sz=w1280" alt="Promo edit 03 thumbnail">
-            <span class="play-btn" aria-hidden="true">▶</span>
-          </div>
-          <div class="video-body">
-            <span class="badge-top">MOTION</span>
-            <h4>Promo edit 03</h4>
-            <p>Short-form / promo cut. Click to play.</p>
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="grid-bg">
-  <div class="glow" style="top:-40px; left:50%; transform:translateX(-50%); width:300px; height:200px;"></div>
-  <div class="wrap">
-    <div class="pill fade-up" style="margin:0 auto 20px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-      TOOLKIT
-    </div>
-    <h2 class="heading fade-up">What I Design <span class="grad">With</span></h2>
-    <p class="sub fade-up">Trained in VFX &amp; compositing, sharpened by real freelance work.</p>
-
-    <div class="skill-cards">
-      <div class="skill-card fade-up">
-        <span class="badge-top">CORE</span>
-        <h3>Photoshop <span class="pct">92%</span></h3>
-        <p>Social creatives, banners and poster design — my daily driver for client work.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">CORE</span>
-        <h3>Illustrator <span class="pct">88%</span></h3>
-        <p>Logo work, brand marks and vector assets built for print and digital.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">MOTION</span>
-        <h3>Premiere Pro <span class="pct">85%</span></h3>
-        <p>Promo videos and reels edited for pace, story and platform fit.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">MOTION</span>
-        <h3>After Effects <span class="pct">78%</span></h3>
-        <p>Motion graphics and animated elements for social and promo content.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">MOTION</span>
-        <h3>DaVinci Resolve <span class="pct">75%</span></h3>
-        <p>Color grading and edits for a cleaner, more cinematic final look.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">3D</span>
-        <h3>Maya <span class="pct">65%</span></h3>
-        <p>3D modeling and animation basics from VFX &amp; compositing training.</p>
-      </div>
-      <div class="skill-card fade-up">
-        <span class="badge-top">QUICK TURNAROUND</span>
-        <h3>Canva <span class="pct">90%</span></h3>
-        <p>Fast, on-brand social creatives when speed matters as much as polish.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="grid-bg">
-  <div class="glow" style="top:0; left:50%; transform:translate(-50%,-50%); width:500px; height:400px;"></div>
-  <div class="wrap">
-    <div class="pill fade-up" style="margin:0 auto 20px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-      WHY WORK WITH ME
-    </div>
-    <h2 class="heading fade-up">A Designer Who Actually <span class="grad">Delivers</span></h2>
-    <p class="sub fade-up">Trained, tested by real clients, and built for deadlines.</p>
-
-    <div class="compare-grid">
-      <div class="compare-card bad fade-up">
-        <div class="compare-head">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-          <h3>Common with junior designers</h3>
         </div>
-        <ul class="compare-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Misses brand guidelines, needs constant revisions</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Slow turnaround, missed deadlines</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><span style="color:#cccccc;">Disappears mid-project, poor communication</span></li>
-        </ul>
-      </div>
-      <div class="compare-card good fade-up">
-        <div class="compare-head">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
-          <h3>Working with Raghavendra</h3>
-        </div>
-        <ul class="compare-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>On-brief creatives across Photoshop, Illustrator &amp; Canva</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Managed multiple projects while meeting deadlines</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Worked directly with clients, start to delivery</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="grid-bg">
-  <div class="glow" style="top:10%; right:10%; width:260px; height:260px;"></div>
-  <div class="wrap">
-    <div class="pill fade-up" style="margin:0 auto 20px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-      EXPERIENCE
-    </div>
-    <h2 class="heading fade-up">Where I've <span class="grad">Worked</span></h2>
-
-    <div class="timeline">
-      <div class="tl-card fade-up">
-        <h3>Graphic Designer &amp; Video Editor</h3>
-        <div class="meta">Arena Animation · Nov 2025 — Present</div>
-        <ul>
-          <li>Designed 50+ social media creatives</li>
-          <li>Edited promotional videos and reels</li>
-          <li>Created branding materials and marketing assets</li>
-        </ul>
-      </div>
-      <div class="tl-card fade-up">
-        <h3>Freelance Graphic Designer &amp; Video Editor</h3>
-        <div class="meta">Self-employed · Aug 2025 — Present</div>
-        <ul>
-          <li>Created social creatives, branding assets &amp; promo videos for clients</li>
-          <li>Worked directly with clients to deliver engaging visual content</li>
-          <li>Managed multiple projects while meeting deadlines</li>
-        </ul>
-      </div>
-      <div class="tl-card fade-up">
-        <h3>Content Creation Intern</h3>
-        <div class="meta">All India Radio</div>
-        <ul><li>Supported content creation across on-air and digital formats</li></ul>
-      </div>
-      <div class="tl-card fade-up">
-        <h3>Design Intern</h3>
-        <div class="meta">Chitara Magazine</div>
-        <ul><li>Created posters and worked on social media creatives</li></ul>
-      </div>
-    </div>
-
-    <div class="edu-grid" style="margin-top:44px;">
-      <div class="edu-card fade-up">
-        <h3>VFX &amp; Compositing</h3>
-        <div class="meta">Arena Animation · May 2023 — Nov 2025</div>
-        <p>Specialised training in VFX and compositing, alongside graphic design and video editing tools.</p>
-      </div>
-      <div class="edu-card fade-up">
-        <h3>Degree, Bangalore University</h3>
-        <div class="meta">PJCE · May 2021 — 2024</div>
-        <p>Undergraduate studies at PJCE, Bangalore University.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="grid-bg">
-  <div class="glow" style="top:20px; left:50%; transform:translateX(-50%); width:400px; height:300px;"></div>
-  <div class="wrap" style="text-align:center;">
-    <div class="pill fade-up" style="margin:0 auto 20px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-      GET IN TOUCH
-    </div>
-    <h2 class="heading fade-up">Ready To Start Your <span class="grad">Next Project?</span></h2>
-    <p class="sub fade-up">Reels, banners, posters, logos or full brand kits — let's talk about what you need.</p>
-
-    <div class="contact-card fade-up">
-      <div class="contact-links">
-        <a href="mailto:raghavendrathinakar@gmail.com">raghavendrathinakar@gmail.com</a>
-        <a href="tel:+918431730486">+91 84317 30486</a>
-        <a href="https://www.behance.net/raghuxo" target="_blank" rel="noopener">Behance ↗</a>
-      </div>
+      </article>
     </div>
     <a href="mailto:raghavendrathinakar@gmail.com" class="final-btn fade-up">Send Me a Brief →</a>
   </div>
@@ -779,11 +689,15 @@
       activeFilter = btn.dataset.filter;
       filters.forEach(b => b.classList.toggle('active', b === btn));
       const videoOnly = activeFilter === 'videos';
-      items.forEach(item => {
-        const show = !videoOnly && (activeFilter === 'all' || item.dataset.cat === activeFilter);
-        item.classList.toggle('is-hidden', !show);
+      document.querySelectorAll('.work-chapter').forEach(ch => {
+        const show = !videoOnly && (activeFilter === 'all' || ch.dataset.cat === activeFilter);
+        ch.classList.toggle('is-hidden', !show);
       });
       gallery.classList.toggle('is-hidden', videoOnly);
+      if(!videoOnly && activeFilter !== 'all'){
+        const ch = document.getElementById('chapter-' + activeFilter);
+        if(ch) ch.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
+      }
       if(stillsNote) stillsNote.classList.toggle('is-hidden', videoOnly);
       if(videoWork){
         videoWork.classList.toggle('is-hidden', activeFilter !== 'all' && activeFilter !== 'videos');
@@ -798,7 +712,10 @@
   let lbIndex = 0;
 
   function visibleItems(){
-    return items.filter(item => !item.classList.contains('is-hidden'));
+    return items.filter(item => {
+      const ch = item.closest('.work-chapter');
+      return ch && !ch.classList.contains('is-hidden') && !gallery.classList.contains('is-hidden');
+    });
   }
   function openLightbox(item){
     const vis = visibleItems();
