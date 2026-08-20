@@ -85,7 +85,7 @@
 
   section{padding:70px 0; position:relative;}
   .heading{text-align:center; font-weight:800; text-transform:uppercase; line-height:1.15; letter-spacing:0.3px; font-size:clamp(28px,6vw,44px); margin:0 auto 16px;}
-  .heading .grad{background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 30px rgba(76,132,255,0.3);}
+  .heading .grad, .grad{background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 30px rgba(76,132,255,0.3);}
   .sub{text-align:center; color:var(--text-dim); font-size:15px; line-height:1.6; max-width:520px; margin:0 auto;}
 
   .hero{min-height:100svh; display:flex; align-items:center; padding-top:90px;}
@@ -141,6 +141,7 @@
   .gallery{
     column-count:1; column-gap:16px;
   }
+  .gallery.is-hidden, .work-note.is-hidden{display:none;}
   @media(min-width:640px){ .gallery{column-count:2;} }
   @media(min-width:980px){ .gallery{column-count:3;} }
   .gallery-item{
@@ -184,6 +185,36 @@
   @media(hover:none){ .gallery-meta{opacity:1; transform:none;} }
 
   .work-note{text-align:center; color:var(--text-faint); font-size:12px; margin-top:8px;}
+
+  .video-work{margin-top:48px; scroll-margin-top:88px;}
+  .video-work.is-hidden{display:none;}
+  .video-head{text-align:center; margin-bottom:28px;}
+  .video-head h3{
+    font-size:clamp(20px,4vw,28px); font-weight:800; text-transform:uppercase;
+    letter-spacing:0.3px; margin-bottom:8px;
+  }
+  .video-head p{color:var(--text-dim); font-size:14px; line-height:1.55;}
+  .video-grid{display:flex; flex-direction:column; gap:22px;}
+  @media(min-width:900px){ .video-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;} }
+  .video-card{
+    background:linear-gradient(135deg,#0A122C 0%,#050A1A 100%);
+    border:1px solid rgba(76,132,255,0.35); border-radius:20px; overflow:hidden;
+    box-shadow:0 10px 28px rgba(0,0,0,0.35);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .video-card:hover{transform:translateY(-4px); box-shadow:0 0 28px rgba(76,132,255,0.25), 0 16px 36px rgba(0,0,0,0.45);}
+  .video-frame{position:relative; aspect-ratio:16/9; background:#000;}
+  .video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .video-body{padding:16px 18px 18px;}
+  .video-body .badge-top{
+    display:inline-block; background:var(--pill-bg); border:1px solid var(--pill-border);
+    border-radius:100px; padding:5px 12px; font-size:10px; font-weight:700;
+    letter-spacing:0.5px; text-transform:uppercase; margin-bottom:10px;
+  }
+  .video-body h4{font-size:15px; font-weight:800; text-transform:uppercase; margin-bottom:6px;}
+  .video-body p{color:var(--text-dim); font-size:13px; line-height:1.5;}
+  .video-body a{color:#9db4ff; font-size:12px; font-weight:600; text-decoration:none;}
+  .video-body a:hover{color:#fff;}
 
   .lightbox{
     position:fixed; inset:0; z-index:300; display:none;
@@ -280,6 +311,7 @@
     </button>
     <ul class="nav-links" id="site-nav">
       <li><a href="#work">Work</a></li>
+      <li><a href="#videos">Videos</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li class="nav-cta-item"><a href="#contact" class="nav-cta">Hire Me</a></li>
@@ -315,7 +347,7 @@
       SELECTED WORK
     </div>
     <h2 class="heading fade-up">Recent <span class="grad">Projects</span></h2>
-    <p class="sub fade-up">Banners, posters, logos, social posts, cards and thumbnails from real client campaigns.</p>
+    <p class="sub fade-up">Banners, posters, logos, social posts, cards, thumbnails and video edits from real client campaigns.</p>
 
     <div class="work-filters fade-up" role="tablist" aria-label="Filter work by category">
       <button class="filter-btn active" type="button" data-filter="all">All</button>
@@ -326,6 +358,7 @@
       <button class="filter-btn" type="button" data-filter="cards">Cards</button>
       <button class="filter-btn" type="button" data-filter="thumbs">Thumbnails</button>
       <button class="filter-btn" type="button" data-filter="reels">Reels</button>
+      <button class="filter-btn" type="button" data-filter="videos">Videos</button>
     </div>
 
     <div class="gallery" id="workGallery">
@@ -466,7 +499,49 @@
         <span class="gallery-meta"><span class="gallery-cat">Reels</span><span class="gallery-title">Money reel</span></span>
       </button>
     </div>
-    <p class="work-note fade-up">Click any piece to view it larger.</p>
+    <p class="work-note fade-up" id="stillsNote">Click any piece to view it larger.</p>
+
+    <div class="video-work fade-up" id="videos">
+      <div class="video-head">
+        <h3>Motion &amp; <span class="grad">Video Edits</span></h3>
+        <p>Promo cuts and short-form edits. Hit play on a card to watch.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe src="https://drive.google.com/file/d/1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u/preview" title="Promo video edit 1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">MOTION</span>
+            <h4>Promo edit 01</h4>
+            <p>Short-form / promo cut.</p>
+            <a href="https://drive.google.com/file/d/1K2sbpTSoKEBX5d2OKFmrxX29tj7J8y6u/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe src="https://drive.google.com/file/d/1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur/preview" title="Promo video edit 2" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">MOTION</span>
+            <h4>Promo edit 02</h4>
+            <p>Short-form / promo cut.</p>
+            <a href="https://drive.google.com/file/d/1TFxeIpRK3ZC9wUnnggnNmCLghXdKE-ur/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe src="https://drive.google.com/file/d/1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0/preview" title="Promo video edit 3" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-body">
+            <span class="badge-top">MOTION</span>
+            <h4>Promo edit 03</h4>
+            <p>Short-form / promo cut.</p>
+            <a href="https://drive.google.com/file/d/1LtstrygJAjsAEAIeJlcHI_IP7S3qoao0/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -676,15 +751,25 @@
 
   const items = [...document.querySelectorAll('.gallery-item')];
   const filters = document.querySelectorAll('.filter-btn');
+  const gallery = document.getElementById('workGallery');
+  const stillsNote = document.getElementById('stillsNote');
+  const videoWork = document.getElementById('videos');
   let activeFilter = 'all';
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
       activeFilter = btn.dataset.filter;
       filters.forEach(b => b.classList.toggle('active', b === btn));
+      const videoOnly = activeFilter === 'videos';
       items.forEach(item => {
-        const show = activeFilter === 'all' || item.dataset.cat === activeFilter;
+        const show = !videoOnly && (activeFilter === 'all' || item.dataset.cat === activeFilter);
         item.classList.toggle('is-hidden', !show);
       });
+      gallery.classList.toggle('is-hidden', videoOnly);
+      if(stillsNote) stillsNote.classList.toggle('is-hidden', videoOnly);
+      if(videoWork){
+        videoWork.classList.toggle('is-hidden', activeFilter !== 'all' && activeFilter !== 'videos');
+        if(videoOnly) videoWork.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'start'});
+      }
     });
   });
 
